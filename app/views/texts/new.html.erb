@@ -1,0 +1,10 @@
+<h1>Text Abuse</h1>
+
+
+<%= form_for @text do |t| %>
+  <%= t.label "Write in text to destroy" %>
+  <%= t.text_area :text %>
+  <%= t.submit "Disemvowel", class: "btn" %>
+  <%= t.submit "Munge", class: "btn" %>
+  <%= t.submit "ROT 13", class: "btn" %>
+<% end %>
