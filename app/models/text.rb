@@ -25,11 +25,11 @@ class Text < ActiveRecord::Base
   end
 
   def munge
-    self.text = text.split.map do |word|
-      chars = word.chars
-      first = chars.shift
-      last = chars.pop
-      "#{first}#{chars.shuffle.join}#{last}"
+    self.text = text.split.map do |word, first_letter, last_letter|
+    word = word.split(//)
+    first_letter = word.shift
+    last_letter = word.pop
+      "#{first_letter}#{word.shuffle.join}#{last_letter}"
     end.join(' ')
   end
 
