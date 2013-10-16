@@ -10,9 +10,9 @@
         <%= t.text_area :text %>
         <div class="row">
           <div class="span5 offset7">
-            <%= t.submit "Disemvowel", class: "btn" %>
-            <%= t.submit "Munge", class: "btn" %>
-            <%= t.submit "ROT 13", class: "btn" %>
+            <% ::Text::ALTERATIONS.each do |alteration| %>
+              <%= t.button alteration, name: 'text[alteration]', value: alteration, class: "btn" %>
+            <% end %>
           </div>
         </div>
       <% end %>

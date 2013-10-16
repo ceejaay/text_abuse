@@ -7,7 +7,8 @@ class TextsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    text = Text.create!(text: 'hello world')
+    get :show, id: text.id
     assert_response :success
   end
 
