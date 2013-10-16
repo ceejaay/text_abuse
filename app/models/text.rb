@@ -37,4 +37,10 @@ class Text < ActiveRecord::Base
   def rot_13
     self.text = text.tr 'A-Za-z', 'N-ZA-Mn-za-m'
   end
+  attr_accessible :text
+  
+  
+
+
+  
 end
