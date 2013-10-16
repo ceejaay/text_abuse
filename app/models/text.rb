@@ -25,6 +25,14 @@ class Text < ActiveRecord::Base
   end
 
 
+  def munge
+    self.text = text.split.map do |word, first_letter, last_letter|
+    word = word.split(//)
+    first_letter = word.shift
+    last_letter = word.pop
+      "#{first_letter}#{word.shuffle.join}#{last_letter}"
+    end.join(' ')
+  end
 
   def rot_13
     self.text = text.tr 'A-Za-z', 'N-ZA-Mn-za-m'
