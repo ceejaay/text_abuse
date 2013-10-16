@@ -24,14 +24,7 @@ class Text < ActiveRecord::Base
     self.text = text.tr 'aeiou', ''
   end
 
-  def munge
-    self.text = text.split.map do |word|
-      chars = word.chars
-      first = chars.shift
-      last = chars.pop
-      "#{first}#{chars.shuffle.join}#{last}"
-    end.join(' ')
-  end
+
 
   def rot_13
     self.text = text.tr 'A-Za-z', 'N-ZA-Mn-za-m'
